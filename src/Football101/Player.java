@@ -20,8 +20,7 @@ public class Player {
 	}
 
 	public void moveTo(int xPosition, int yPosition) {
-		//this.x = xPosition;
-		//this.y = yPosition;		
+		return;		
 	}
 
 	public int getX() {
