@@ -7,12 +7,14 @@ import java.util.ArrayList;
 public class Player {
 	
 	int x, y;
-	char symbol;
+	char teamSymbol;
+	Field field;
 	
-	public Player(int xPosition, int yPosition, char team) {
+	public Player(int xPosition, int yPosition, char team, Field field) {
 		this.x = xPosition;
 		this.y = yPosition;
-		this.symbol = team;
+		this.teamSymbol = team;
+		this.field = field;
 	}
 
 	public void draw(Graphics g){
@@ -20,7 +22,9 @@ public class Player {
 	}
 
 	public void moveTo(int xPosition, int yPosition) {
-		return;		
+		this.x = xPosition;
+		this.y= yPosition;
+		field.repaint();
 	}
 
 	public int getX() {
@@ -32,7 +36,7 @@ public class Player {
 	}
 	
 	public char getSymbol() {
-		return symbol;
+		return teamSymbol;
 	}
 
 	public void moveAlongLine(ArrayList<Point> pointsOfLine) {
@@ -40,6 +44,23 @@ public class Player {
 		// The goal here is to repaint the player at every point in
 		// the line, to demonstrate some sort of animation. They'll
 		// obviously end at the final point in the arraylist.
+		
+		for(Point p : pointsOfLine){
+			// Move player
+			this.moveTo(p.x, p.y);
+			// Reflect changes
+			field.repaint();
+			// Pause application for half a second so that
+			// the animation actually shows
+			try { 
+				Thread.sleep(70); 
+			} catch(InterruptedException e) {
+				System.out.println("Unable to sleep program");
+			}
+			
+			
+		}
+		
 		
 	}
 }
