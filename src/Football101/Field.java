@@ -5,7 +5,15 @@ import javax.swing.JPanel;
 
 
 public class Field extends JPanel {
-	
+	private Menu menu;
+	   
+    public void loadMenu(String Filename){
+        menu = new Menu();
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
 	public void paintComponent(Graphics g){
 		
 	}
