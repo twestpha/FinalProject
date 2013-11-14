@@ -54,6 +54,27 @@ public class Football101Tests {
 		Assert.assertEquals(30, p1.getY());
 	}
 	
+	@Test 
+	public void testLoadMenu(){
+		// Tests the loading of the menu file
+		
+	}
 	
-
+	@Test
+	public void loadOffensiveTeam(){
+		// Tests the creation/loading of the offensive "team" (collection) of players.
+		
+	}
+	
+	@Test
+	public void loadDefensiveTeam(){
+		// Tests the creation/loading of the defensive "team" (collection) of players.
+		
+	}
+	
+	@Test
+	public void testDropDownSelection(){
+		// Tests which Item has been selected for the dropdown menus.
+		
+	}
 }
