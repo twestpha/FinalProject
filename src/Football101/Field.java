@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 
 
 public class Field extends JPanel {
-
+	
 	public void paintComponent(Graphics g){
 		
 	}

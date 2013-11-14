@@ -10,12 +10,15 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import Football101.Football101;
 import Football101.Player;
 
 public class Football101Tests {
 	private Player p1;
+	private Football101 football101;
 	@Before
 	public void setUp() throws Exception {
+		football101 = new Football101();
 		p1 = new Player(0,0,'O');
 	}
 
@@ -60,23 +63,47 @@ public class Football101Tests {
 	public void testLoadMenu(){
 		// Tests the loading of the menu file
 		// Brendan's Test
+		Assert.assertTrue(false);
 	}
 	
 	@Test
 	public void loadOffensiveTeam(){
 		// Tests the creation/loading of the offensive "team" (collection) of players.
 		// Chris
+		ArrayList<Player> offense = football101.getOffensivePlayers();
+		
+		Assert.assertEquals(offense.size(), 11);
+		
+		boolean isCorrectChar = true;
+		for (Player player : offense) {
+			isCorrectChar &= (player.getSymbol() == 'O');
+		}
+		
+		assertTrue(isCorrectChar);
 	}
 	
 	@Test
 	public void loadDefensiveTeam(){
 		// Tests the creation/loading of the defensive "team" (collection) of players.
 		// Chris
+		ArrayList<Player> defense = football101.getDefensivePlayers();
+		
+		Assert.assertEquals(defense.size(), 11);
+		
+		boolean isCorrectChar = true;
+		for (Player player : defense) {
+			isCorrectChar &= (player.getSymbol() == 'X');
+		}
+		
+		assertTrue(isCorrectChar);
+		
+		
 	}
 	
 	@Test
 	public void testDropDownSelection(){
 		// Tests which Item has been selected for the dropdown menus.
 		// TREVORS TEST
+		Assert.assertTrue(false);
 	}
 }

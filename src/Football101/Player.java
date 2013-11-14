@@ -20,8 +20,8 @@ public class Player {
 	}
 
 	public void moveTo(int xPosition, int yPosition) {
-		this.x = xPosition;
-		this.y = yPosition;		
+		//this.x = xPosition;
+		//this.y = yPosition;		
 	}
 
 	public int getX() {
@@ -30,6 +30,10 @@ public class Player {
 
 	public int getY() {
 		return y;
+	}
+	
+	public char getSymbol() {
+		return symbol;
 	}
 
 	public void moveAlongLine(ArrayList<Point> pointsOfLine) {
