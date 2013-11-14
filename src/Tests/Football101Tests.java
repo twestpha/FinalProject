@@ -21,6 +21,7 @@ public class Football101Tests {
 
 	@Test
 	public void testMove() {
+		// Marcus
 		p1.moveTo(50, 25);
 		Assert.assertEquals(50, p1.getX());
 		Assert.assertEquals(25, p1.getY());
@@ -32,6 +33,7 @@ public class Football101Tests {
 	
 	@Test
 	public void testMoveAlongLine(){
+		// Marcus
 		// Create an array of points which will be used to
 		// draw a line, which will be followed by the player.
 		ArrayList<Point> lines = new ArrayList<Point>();
@@ -57,24 +59,24 @@ public class Football101Tests {
 	@Test 
 	public void testLoadMenu(){
 		// Tests the loading of the menu file
-		
+		// Brendan's Test
 	}
 	
 	@Test
 	public void loadOffensiveTeam(){
 		// Tests the creation/loading of the offensive "team" (collection) of players.
-		
+		// Chris
 	}
 	
 	@Test
 	public void loadDefensiveTeam(){
 		// Tests the creation/loading of the defensive "team" (collection) of players.
-		
+		// Chris
 	}
 	
 	@Test
 	public void testDropDownSelection(){
 		// Tests which Item has been selected for the dropdown menus.
-		
+		// TREVORS TEST
 	}
 }
