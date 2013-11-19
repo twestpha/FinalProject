@@ -16,8 +16,17 @@ public class Football101 extends JFrame {
 	
 	public Football101() {
 		// TODO Auto-generated constructor stub
+		field = new Field();
+		
 		offensivePlayers = new ArrayList<Player>();
 		defensivePlayers = new ArrayList<Player>();
+		
+		for (int i = 0; i < PLAYERS_PER_TEAM; ++i){
+			// Fills the team array lists. The first two arguments just control where the player is at on the field
+			//	What is shown is a simple example of where they can be.
+			offensivePlayers.add(new Player(field.getWidth()*(2/5),i*field.getHeight()/PLAYERS_PER_TEAM,'O', this));
+			defensivePlayers.add(new Player(field.getWidth()*(4/5),i*field.getHeight()/PLAYERS_PER_TEAM,'X', this));
+		}
 		
 	}
 
