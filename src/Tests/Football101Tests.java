@@ -70,8 +70,8 @@ public class Football101Tests {
 	@Test
 	public void testLoadMenu(){
 		// Tests the loading of the menu file
-		football101.getField().loadMenu("MenuFile");
-		assertEquals(football101.getField().getMenu().getNumElements(),10);
+		football101.loadMenu("MenuFile");
+		assertEquals(football101.getMenu().getNumElements(),10);
 		//Later add contains tests
 	}
 
@@ -79,14 +79,14 @@ public class Football101Tests {
 	public void testNoLoadMenu() throws BadConfigException, FileNotFoundException {
 		// Tests the loading of the menu file
 		// Brendan's Test
-		football101.getField().loadMenu("NoMenuFile");
+		football101.loadMenu("NoMenuFile");
 	}
 
 	@Test (expected = BadConfigException.class)
 	public void testLoadBadMenu() throws BadConfigException, FileNotFoundException {
 		// Tests the loading of the menu file
 		// Brendan's Test
-		football101.getField().loadMenu("badMenuFile");
+		football101.loadMenu("badMenuFile");
 	}
 
 	@Test
@@ -119,7 +119,6 @@ public class Football101Tests {
 		}
 
 		assertTrue(isCorrectChar);
-
 
 	}
 
