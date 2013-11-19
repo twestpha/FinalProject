@@ -26,8 +26,8 @@ public class Football101Tests {
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
-		p1 = new Player(0,0,'O');
 		f = new Field();
+		p1 = new Player(0,0,'O',f);
 		m = new Menu();
 	}
 
