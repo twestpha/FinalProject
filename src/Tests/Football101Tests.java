@@ -20,14 +20,12 @@ import Football101.Player;
 public class Football101Tests {
 	private Player p1;
 	private Football101 football101;
-	private Field f;
 	private Menu m;
 
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
-		f = new Field();
-		p1 = new Player(0,0,'O',f);
+		p1 = new Player(0,0,'O',football101.getField());
 		m = new Menu();
 	}
 
@@ -72,8 +70,8 @@ public class Football101Tests {
 	public void testLoadMenu(){
 		// Tests the loading of the menu file
 		// Brendan's Test
-		f.loadMenu("MenuFile");
-		assertEquals(f.getMenu().getNumElements(),10);
+		football101.getField().loadMenu("MenuFile");
+		assertEquals(football101.getField().getMenu().getNumElements(),10);
 		//Later add contains tests
 	}
 
@@ -81,14 +79,14 @@ public class Football101Tests {
 	public void testNoLoadMenu() throws BadConfigException, FileNotFoundException {
 		// Tests the loading of the menu file
 		// Brendan's Test
-		f.loadMenu("NoMenuFile");
+		football101.getField().loadMenu("NoMenuFile");
 	}
 
 	@Test (expected = BadConfigException.class)
 	public void testLoadBadMenu() throws BadConfigException, FileNotFoundException {
 		// Tests the loading of the menu file
 		// Brendan's Test
-		f.loadMenu("badMenuFile");
+		football101.getField().loadMenu("badMenuFile");
 	}
 
 	@Test
