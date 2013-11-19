@@ -39,6 +39,8 @@ public class Football101 extends JFrame {
 	}
 	
 	public void loadPlay(String filename){
+		// Load the Play object.
+		currentPlay = new Play(filename);
 	}
 
 	public ArrayList<Player> getOffensivePlayers() {
