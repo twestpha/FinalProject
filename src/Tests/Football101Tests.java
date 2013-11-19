@@ -25,13 +25,14 @@ public class Football101Tests {
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
-		p1 = new Player(0,0,'O',football101.getField());
+		p1 = new Player(0,0,'O',football101);
 		m = new Menu();
 	}
 
 	@Test
 	public void testMove() {
 		// Marcus
+		// NULL because football101.getField is null because the member variable football101 is uninitialized
 		p1.moveTo(50, 25);
 		Assert.assertEquals(50, p1.getX());
 		Assert.assertEquals(25, p1.getY());
@@ -69,7 +70,6 @@ public class Football101Tests {
 	@Test
 	public void testLoadMenu(){
 		// Tests the loading of the menu file
-		// Brendan's Test
 		football101.getField().loadMenu("MenuFile");
 		assertEquals(football101.getField().getMenu().getNumElements(),10);
 		//Later add contains tests

@@ -8,13 +8,13 @@ public class Player {
 	
 	int x, y;
 	char teamSymbol;
-	Field field;
+	Football101 f;
 	
-	public Player(int xPosition, int yPosition, char team, Field field) {
+	public Player(int xPosition, int yPosition, char team, Football101 f) {
 		this.x = xPosition;
 		this.y = yPosition;
 		this.teamSymbol = team;
-		this.field = field;
+		this.f = f;
 	}
 
 	public void draw(Graphics g){
@@ -24,7 +24,7 @@ public class Player {
 	public void moveTo(int xPosition, int yPosition) {
 		this.x = xPosition;
 		this.y= yPosition;
-		field.repaint();
+		f.getField().repaint();
 	}
 
 	public int getX() {
@@ -49,7 +49,7 @@ public class Player {
 			// Move player
 			this.moveTo(p.x, p.y);
 			// Reflect changes
-			field.repaint();
+			f.getField().repaint();
 			// Pause application for half a second so that
 			// the animation actually shows
 			try { 
