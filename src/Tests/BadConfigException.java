@@ -2,7 +2,7 @@ package Tests;
 
 public class BadConfigException extends Exception {
 
-    BadConfigException(String message){
+    public BadConfigException(String message){
         super(message);
     }
    

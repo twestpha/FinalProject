@@ -68,7 +68,7 @@ public class Football101Tests {
 	}
 
 	@Test
-	public void testLoadMenu(){
+	public void testLoadMenu() throws BadConfigException, FileNotFoundException {
 		// Tests the loading of the menu file
 		football101.loadMenu("MenuFile");
 		assertEquals(football101.getMenu().getNumElements(),10);
