@@ -26,7 +26,6 @@ public class Football101Tests {
 	public void setUp() throws Exception {
 		football101 = new Football101();
 		p1 = new Player(0,0,'O',football101);
-		m = new Menu();
 	}
 
 	@Test
@@ -70,8 +69,8 @@ public class Football101Tests {
 	@Test
 	public void testLoadMenu() throws BadConfigException, FileNotFoundException {
 		// Tests the loading of the menu file
-		football101.loadMenu("MenuFile");
-		assertEquals(football101.getMenu().getNumElements(),10);
+		football101.loadMenu("Menu.conf");
+		assertEquals(football101.getMenu().getNumElements(),3);
 		//Later add contains tests
 	}
 
@@ -126,14 +125,17 @@ public class Football101Tests {
 	public void testDropDownSelection(){
 		// Tests which Item has been selected for the dropdown menus.
 		// First, set up the selection
-		m.setSelection("");
+		try {
+			football101.loadMenu("Menu.conf");
+		} catch (FileNotFoundException | BadConfigException e) {
+			e.printStackTrace();
+		}
+		
+		football101.getMenu().setSelection("Blue 42");
 		// Then, simulate the enter command
-		m.executeSelectedPlay();
+		football101.getMenu().executeSelectedPlay();
 		// Finally, verify the selection persists
-		Assert.assertEquals(m.getSelection(),"Running Play");
-
-
-
-		Assert.assertTrue(false);
+		Assert.assertEquals(football101.getMenu().getFilePath(),"/src/blue42.play");
+		Assert.assertEquals(football101.getMenu().getSelection(),"Blue 42");
 	}
 }

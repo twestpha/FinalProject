@@ -83,9 +83,8 @@ public class Football101 extends JFrame {
 			FileReader reader = new FileReader(filename);
 			Scanner in = new Scanner(reader);
 			while(in.hasNext()){
-				String[] content = in.nextLine().split(", ");
-				if (content.length >2 || content.length <2){
-					// LOOK AT THIS LINE // -- LINE 70 --------------------------------
+				String[] content = in.nextLine().split(",");
+				if (content.length != 2){
 					throw new BadConfigException("Bad legend Config");
 				}
 				menuContent.put(content[0], content[1]);
