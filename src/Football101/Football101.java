@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-import Tests.BadConfigException;
 
 
 public class Football101 extends JFrame {

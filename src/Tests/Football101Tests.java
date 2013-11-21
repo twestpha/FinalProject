@@ -11,6 +11,7 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import Football101.BadConfigException;
 import Football101.Field;
 import Football101.Football101;
 import Football101.Menu;
