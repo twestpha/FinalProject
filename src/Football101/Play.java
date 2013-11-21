@@ -102,6 +102,8 @@ public class Play {
 			else{
 				System.out.println("Team sign incorrect. This shouldn't happen. Error in Play class.");
 			}
+			// Basically if the number of characters, except the team sign, mod 2 is not 0,
+			// then we have a non-paired value.
 			if(charCounter-1 % 2 != 0){
 				throw new BadConfigException(currentPlayFilename);
 			}
