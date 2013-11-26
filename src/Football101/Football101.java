@@ -70,6 +70,14 @@ public class Football101 extends JFrame {
 
 	public static void main(String[] args) {
 		Football101 f = new Football101();
+		
+		Play play = new Play("test.play", f);
+		try {
+			play.readPlayFromFile();
+		} catch (BadConfigException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Field getField(){
