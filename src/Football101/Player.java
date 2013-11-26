@@ -1,4 +1,5 @@
 package Football101;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class Player {
 	char teamSymbol;
 	Football101 f;
 	
-	public Player(int xPosition, int yPosition, char team, Football101 f, Path p) {
+	public Player(int xPosition, int yPosition, char team, Football101 f) {
 		this.x = xPosition;
 		this.y = yPosition;
 		this.teamSymbol = team;
@@ -18,7 +19,8 @@ public class Player {
 	}
 
 	public void draw(Graphics g){
-		// Draws symbol, implement here!
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 24));
+		g.drawString(new Character(teamSymbol).toString(), x, y);
 	}
 
 	public void moveTo(int xPosition, int yPosition) {
@@ -40,7 +42,6 @@ public class Player {
 	}
 
 	public void moveAlongLine(ArrayList<Point> pointsOfLine) {
-		// TODO Implement moveAlongLine()
 		// The points in this array list will serve to draw a line.
 		// The goal here is to repaint the player at every point in
 		// the line, to demonstrate some sort of animation. They'll
@@ -50,7 +51,6 @@ public class Player {
 			// Move player
 			this.moveTo(p.x, p.y);
 			// Reflect changes
-			f.getField().repaint();
 			// Pause application for half a second so that
 			// the animation actually shows
 			try { 

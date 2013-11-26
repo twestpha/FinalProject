@@ -1,5 +1,6 @@
 package Football101;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
@@ -13,6 +14,9 @@ public class Field extends JPanel {
 	}
 
 	public void paintComponent(Graphics g){
+		Player a = new Player(500, 500, 'X', null);
+		
+		
 		final int SPACING = 50;
 		super.paintComponents(g);
 		g.setColor(new Color(57, 128, 71));
@@ -29,11 +33,14 @@ public class Field extends JPanel {
 		for(int j = 0; j < getSize().height/SPACING+1; ++j){
 			g.drawLine(0,SPACING*j,getSize().width,SPACING*j);
 		}
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 12));
 		for(int k = 0; k < getSize().width/SPACING+1; ++k){
 			for(int l = 0; l < getSize().height/SPACING+1; ++l){
 				g.drawString((k*SPACING)+","+(l*SPACING), (SPACING*k)+1, (SPACING*l)+11);
 			}
 		}
+		
+		a.draw(g);
 		// End of testing grid
 	}
 }
