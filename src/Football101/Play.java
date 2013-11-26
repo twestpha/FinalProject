@@ -112,4 +112,11 @@ public class Play {
 		RUN;
 	}
 
+	public ArrayList<Player> getOffensiveTeam() {
+		return offensiveTeam;
+	}
+	public ArrayList<Player> getDefensiveTeam() {
+		return defensiveTeam;
+	}
+
 }
