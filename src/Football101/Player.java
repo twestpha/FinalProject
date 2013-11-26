@@ -7,18 +7,20 @@ import java.util.ArrayList;
 
 
 public class Player {
-	
-	int x, y;
-	char teamSymbol;
-	Football101 f;
-	ArrayList<Point> path;
-	
+
+	private int x, y, pathCount;
+	private boolean doneWithPlay;
+	private char teamSymbol;
+	private Football101 f;
+	private ArrayList<Point> path;
+
 	public Player(int xPosition, int yPosition, char team, ArrayList<Point> path, Football101 f) {
 		this.x = xPosition;
 		this.y = yPosition;
 		this.teamSymbol = team;
 		this.f = f;
 		this.path = path;
+		pathCount = 0;
 	}
 
 	public void draw(Graphics g){
@@ -31,12 +33,6 @@ public class Player {
 		g.drawString(new Character(teamSymbol).toString(), x, y);
 	}
 
-	public void moveTo(int xPosition, int yPosition) {
-		this.x = xPosition;
-		this.y= yPosition;
-		f.getField().repaint();
-	}
-
 	public int getX() {
 		return x;
 	}
@@ -44,36 +40,39 @@ public class Player {
 	public int getY() {
 		return y;
 	}
-	
+
 	public char getSymbol() {
 		return teamSymbol;
 	}
-	
+
 	public void setPath(ArrayList<Point> path){
 		this.path = path;
 	}
+	
+	public boolean isDoneWithPlay(){
+		return doneWithPlay;
+	}
+	public ArrayList<Point> getPath(){
+		return path;
+	}
 
 	public void moveAlongLine() {
-		// The points in this array list will serve to draw a line.
-		// The goal here is to repaint the player at every point in
-		// the line, to demonstrate some sort of animation. They'll
-		// obviously end at the final point in the arraylist.
-		
-		for(Point p : path){
-			// Move player
-			this.moveTo(p.x, p.y);
-			// Reflect changes
-			// Pause application for half a second so that
-			// the animation actually shows
-			try { 
-				Thread.sleep(70); 
-			} catch(InterruptedException e) {
-				System.out.println("Unable to sleep program");
+		if(path.size() != 0 && !doneWithPlay){
+			if( x != path.get(pathCount).x || y != path.get(pathCount).y ){// Not at destination
+				double dx = path.get(pathCount).x - x;
+				double dy = path.get(pathCount).y - y;
+				double theta = Math.atan(dy/dx);
+				x = (int) (x + (1 * Math.cos(theta) ));
+				y = (int) (y + (1 * Math.sin(theta) ));
+			} else {
+				if(pathCount+1 < path.size()){
+					pathCount++;
+				} else {
+					doneWithPlay = true;
+				}
 			}
-			
-			
 		}
-		
-		
+		f.getField().repaint();
 	}
+	
 }

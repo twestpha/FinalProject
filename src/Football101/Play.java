@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Play {
-	ArrayList<Player> offensiveTeam;
-	ArrayList<Player> defensiveTeam;
-	public String currentPlayFilename;
-	Football101 fb101;
+	private ArrayList<Player> offensiveTeam;
+	private ArrayList<Player> defensiveTeam;
+	private String currentPlayFilename;
+	private Football101 fb101;
 
 	public Play(String filename, Football101 fb101) {
 		currentPlayFilename = filename;
@@ -18,6 +18,19 @@ public class Play {
 		
 		offensiveTeam = new ArrayList<Player>();
 		defensiveTeam = new ArrayList<Player>();
+	}
+	
+	public void execute(){
+		for(Player o : getOffensiveTeam()){
+			if(o.getPath() != null){
+				o.moveAlongLine();
+			}
+		}
+		for(Player x : getDefensiveTeam()){
+			if(x.getPath() != null){
+				x.moveAlongLine();
+			}
+		}
 	}
     // Added throws declaration. Figured this error should be handled elsewhere.
 	public void readPlayFromFile() throws BadConfigException{

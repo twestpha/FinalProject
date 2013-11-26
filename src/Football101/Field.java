@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 public class Field extends JPanel {
 	private Menu menu;
 	private Play curPlay;
-	   
 	public Field(){
 		
 	}
@@ -19,6 +18,7 @@ public class Field extends JPanel {
 		//a.draw(g);
 		
 		final int SPACING = 50;
+		boolean nobodyDone = true;
 		super.paintComponents(g);
 		g.setColor(new Color(57, 128, 71));
 		g.fillRect(0,0,getSize().width,getSize().height);
@@ -43,18 +43,22 @@ public class Field extends JPanel {
 		// End of testing grid
 		
 		if(curPlay != null){
-			for(Player o : curPlay.getOffensiveTeam()){
-				o.draw(g);
-			}
-			for(Player x : curPlay.getDefensiveTeam()){
-				x.draw(g);
-			}
+				for(Player o : curPlay.getOffensiveTeam()){
+					o.draw(g);
+				}
+				for(Player x : curPlay.getDefensiveTeam()){
+					x.draw(g);
+				}
 		}
-			
 		
 	}
+
 	
 	public void setCurPlay(Play curPlay){
 		this.curPlay = curPlay;
+	}
+	
+	public Play getCurPlay(){
+		return curPlay;
 	}
 }

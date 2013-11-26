@@ -18,7 +18,7 @@ public class Football101 extends JFrame {
 	private ArrayList<Player> offensivePlayers;
 	private ArrayList<Player> defensivePlayers;
 	
-	Map<String, String> menuContent = new HashMap<String, String>();
+	private Map<String, String> menuContent = new HashMap<String, String>();
 
 	private static final int PLAYERS_PER_TEAM = 11;
 
