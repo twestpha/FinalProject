@@ -9,7 +9,7 @@ public class Field extends JPanel {
 	private Menu menu;
 	   
 	public Field() {
-		// TODO Auto-generated constructor stub
+		// TODO Implement field constructor
 	}
 
 	public void paintComponent(Graphics g){
@@ -21,7 +21,7 @@ public class Field extends JPanel {
 		g.fillRect((getSize().width/2)-3,30,6,getSize().height - 60);
 		g.fillRect((getSize().width/4)-3,30,6,getSize().height - 60);
 		g.fillRect((getSize().width/2)+(getSize().width/4)-3,30,6,getSize().height - 60);
-		// TEST GRID.
+		// TODO: TEST GRID. REMOVE BEFORE RELEASE
 		for(int i = 0; i < getSize().width/SPACING+1; ++i){
 			g.drawLine(SPACING*i, 0, SPACING*i, getSize().height);
 		}

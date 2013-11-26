@@ -75,7 +75,6 @@ public class Football101 extends JFrame {
 		try {
 			play.readPlayFromFile();
 		} catch (BadConfigException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

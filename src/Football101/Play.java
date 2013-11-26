@@ -27,7 +27,7 @@ public class Play {
 		try {
 			playParser = new Scanner(playFile);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			// TODO: handle this exception
 			System.out.println("Can't open play file");
 		}
 		// Counter to keep track of the number of usable characters read
