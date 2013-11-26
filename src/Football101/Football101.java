@@ -40,11 +40,11 @@ public class Football101 extends JFrame {
 	}
 
 	public void clear(){
-
+		
 	}
 
 	public void executePlay(Play target){
-
+		
 	}
 
 	public void loadPlay(String filename){
