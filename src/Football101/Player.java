@@ -11,12 +11,14 @@ public class Player {
 	int x, y;
 	char teamSymbol;
 	Football101 f;
+	ArrayList<Point> path;
 	
-	public Player(int xPosition, int yPosition, char team, Football101 f) {
+	public Player(int xPosition, int yPosition, char team, ArrayList<Point> path, Football101 f) {
 		this.x = xPosition;
 		this.y = yPosition;
 		this.teamSymbol = team;
 		this.f = f;
+		this.path = path;
 	}
 
 	public void draw(Graphics g){
@@ -42,14 +44,18 @@ public class Player {
 	public char getSymbol() {
 		return teamSymbol;
 	}
+	
+	public void setPath(ArrayList<Point> path){
+		this.path = path;
+	}
 
-	public void moveAlongLine(ArrayList<Point> pointsOfLine) {
+	public void moveAlongLine() {
 		// The points in this array list will serve to draw a line.
 		// The goal here is to repaint the player at every point in
 		// the line, to demonstrate some sort of animation. They'll
 		// obviously end at the final point in the arraylist.
 		
-		for(Point p : pointsOfLine){
+		for(Point p : path){
 			// Move player
 			this.moveTo(p.x, p.y);
 			// Reflect changes

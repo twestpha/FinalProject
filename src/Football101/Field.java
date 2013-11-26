@@ -14,7 +14,7 @@ public class Field extends JPanel {
 	}
 
 	public void paintComponent(Graphics g){
-		Player a = new Player(500, 500, 'X', null);
+		//Player a = new Player(500, 500, 'X', null);
 		
 		
 		final int SPACING = 50;
@@ -40,7 +40,7 @@ public class Field extends JPanel {
 			}
 		}
 		
-		a.draw(g);
+		//a.draw(g);
 		// End of testing grid
 	}
 }
