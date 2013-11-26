@@ -1,4 +1,4 @@
-package Tests;
+package Football101;
 
 public class BadConfigException extends Exception {
 

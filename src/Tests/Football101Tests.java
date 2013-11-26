@@ -11,9 +11,11 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import Football101.BadConfigException;
 import Football101.Field;
 import Football101.Football101;
 import Football101.Menu;
+import Football101.Path;
 import Football101.Play;
 import Football101.Player;
 
@@ -25,7 +27,7 @@ public class Football101Tests {
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
-		p1 = new Player(0,0,'O',football101);
+		p1 = new Player(0,0,'O',football101, new Path());
 	}
 
 	@Test

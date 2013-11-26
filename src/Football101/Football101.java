@@ -1,4 +1,5 @@
 package Football101;
+import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -8,7 +9,6 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-import Tests.BadConfigException;
 
 
 public class Football101 extends JFrame {
@@ -25,18 +25,26 @@ public class Football101 extends JFrame {
 	private static final int PLAYERS_PER_TEAM = 11;
 
 	public Football101() {
-		// TODO Auto-generated constructor stub
-		field = new Field();
 
 		offensivePlayers = new ArrayList<Player>();
 		defensivePlayers = new ArrayList<Player>();
 
-		for (int i = 0; i < PLAYERS_PER_TEAM; ++i){
-			// Fills the team array lists. The first two arguments just control where the player is at on the field
-			//	What is shown is a simple example of where they can be.
-			offensivePlayers.add(new Player(field.getWidth()*(2/5),i*field.getHeight()/PLAYERS_PER_TEAM,'O', this));
-			defensivePlayers.add(new Player(field.getWidth()*(4/5),i*field.getHeight()/PLAYERS_PER_TEAM,'X', this));
-		}
+
+//		for (int i = 0; i < PLAYERS_PER_TEAM; ++i){
+//			// Fills the team array lists. The first two arguments just control where the player is at on the field
+//			//	What is shown is a simple example of where they can be.
+//			offensivePlayers.add(new Player(field.getWidth()*(2/5),i*field.getHeight()/PLAYERS_PER_TEAM,'O', this));
+//			defensivePlayers.add(new Player(field.getWidth()*(4/5),i*field.getHeight()/PLAYERS_PER_TEAM,'X', this));
+//		}
+
+		
+		// Jframe/Gui stuff
+		field = new Field();
+		add(field, BorderLayout.CENTER);
+		setSize(1024,768);
+		setResizable(false);
+		setVisible(true);
+		setTitle("Football 101");
 	}
 
 	public void clear(){
@@ -49,7 +57,7 @@ public class Football101 extends JFrame {
 
 	public void loadPlay(String filename){
 		// Load the Play object.
-		currentPlay = new Play(filename);
+		currentPlay = new Play(filename, this);
 	}
 
 	public ArrayList<Player> getOffensivePlayers() {
@@ -61,17 +69,15 @@ public class Football101 extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		Football101 f = new Football101();
 		
-		
-		/* tested if loadMenu worked/
-		Football101 test = new Football101();
+		Play play = new Play("test.play", f);
 		try {
-			test.loadMenu("PracticeMenuFile");
+			play.readPlayFromFile();
 		} catch (BadConfigException e) {
-			System.out.println(e.getMessage());
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println(test.getMap());
-		/*/
 	}
 
 	public Field getField(){

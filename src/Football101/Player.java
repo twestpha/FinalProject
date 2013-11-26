@@ -10,7 +10,7 @@ public class Player {
 	char teamSymbol;
 	Football101 f;
 	
-	public Player(int xPosition, int yPosition, char team, Football101 f) {
+	public Player(int xPosition, int yPosition, char team, Football101 f, Path p) {
 		this.x = xPosition;
 		this.y = yPosition;
 		this.teamSymbol = team;
