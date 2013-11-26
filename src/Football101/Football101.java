@@ -44,6 +44,7 @@ public class Football101 extends JFrame {
 		} catch (FileNotFoundException | BadConfigException e) {
 			e.printStackTrace();
 		}
+		add(menu, BorderLayout.NORTH);
 		setSize(1024,768);
 		setResizable(false);
 		setVisible(true);
