@@ -33,7 +33,7 @@ public class Play {
 		
 		
 		
-		System.out.println("------------------");
+		//System.out.println("------------------");
 		
 		while(playParser.hasNextLine()){
 			char teamSign = ' ';
@@ -80,10 +80,6 @@ public class Play {
 					}
 				}
 			}
-			
-			System.out.println("Team sign: " + teamSign + ", startX: " + startX + ", startY: " + startY);
-			System.out.println("\tPath: " + path);
-			System.out.println("------------------");
 
 			if (teamSign == 'X') {
 				defensiveTeam.add(new Player(startX,startY,teamSign, path, fb101));
