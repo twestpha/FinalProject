@@ -1,4 +1,5 @@
 package Football101;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
@@ -19,7 +20,8 @@ public class Player {
 	}
 
 	public void draw(Graphics g){
-		g.setFont(new Font("TimesRoman", Font.PLAIN, 24));
+		g.setFont(new Font("CourierNew", Font.PLAIN, 50));
+		g.setColor(Color.RED);
 		g.drawString(new Character(teamSymbol).toString(), x, y);
 	}
 
