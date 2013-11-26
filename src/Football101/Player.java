@@ -62,8 +62,8 @@ public class Player {
 				double dx = path.get(pathCount).x - x;
 				double dy = path.get(pathCount).y - y;
 				double theta = Math.atan(dy/dx);
-				x = (int) (x + (1 * Math.cos(theta) ));
-				y = (int) (y + (1 * Math.sin(theta) ));
+				x = (int) (x + (8 * Math.cos(theta) ));
+				y = (int) (y + (8 * Math.sin(theta) ));
 			} else {
 				if(pathCount+1 < path.size()){
 					pathCount++;
