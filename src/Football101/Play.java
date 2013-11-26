@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Play {
 	ArrayList<Player> offensiveTeam;
 	ArrayList<Player> defensiveTeam;
-	String currentPlayFilename;
+	public String currentPlayFilename;
 	Football101 fb101;
 
 	public Play(String filename, Football101 fb101) {

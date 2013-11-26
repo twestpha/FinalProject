@@ -43,4 +43,5 @@ public class Field extends JPanel {
 		//a.draw(g);
 		// End of testing grid
 	}
+	
 }
