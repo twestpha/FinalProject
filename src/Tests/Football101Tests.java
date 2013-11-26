@@ -27,7 +27,7 @@ public class Football101Tests {
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
-		p1 = new Player(0,0,'O',football101, new Path());
+		p1 = new Player(0,0,'O',football101);
 	}
 
 	@Test
