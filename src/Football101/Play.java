@@ -15,9 +15,12 @@ public class Play {
 	public Play(String filename, Football101 fb101) {
 		currentPlayFilename = filename;
 		this.fb101 = fb101;
+		
+		offensiveTeam = new ArrayList<Player>();
+		defensiveTeam = new ArrayList<Player>();
 	}
     // Added throws declaration. Figured this error should be handled elsewhere.
-	private void readPlayFromFile() throws BadConfigException{
+	public void readPlayFromFile() throws BadConfigException{
 		// Open file, wrap it in scanner.
 		File playFile = new File(currentPlayFilename);
 		Scanner playParser = null;
@@ -36,11 +39,13 @@ public class Play {
 		int startY = -1;
 		int pathX = -1;
 		int pathY = -1;
+		
 		while(playParser.hasNextLine()){
 			// We need a path for the whole player line, so it's put here so it's not reset until next line
 			Path playerPath = new Path();
 			while(playParser.hasNext()){
 				// Parse a character at a time
+				playParser.useDelimiter(",");
 				String playerLine = playParser.next();
 				
 				// If it's a comma, we can skip reading it
@@ -58,41 +63,47 @@ public class Play {
 					// If we've only read 1 character then this character is the starting x coord 
 					if(charCounter == 1){
 						startX = Integer.parseInt(playerLine);
-						charCounter++;
+						//charCounter++;
 					}
 					// If we've read 2 characters, this is the starting y coord
 					else if(charCounter == 2){
 						startY = Integer.parseInt(playerLine);
-						charCounter++;
 					}
-					// If charcounter mod 2 is zero, it's an x value needing to be added to a point
+					// If charcounter mod 2 is one (because we counted the team character), it's an x value needing to be added to a point
 					// then to a path
-					else if(charCounter%2 == 0){
+					else if(charCounter%2 == 1){
 						pathX = Integer.parseInt(playerLine);
-						continue;
+						//continue;
 					}
 					// Y value for point, then path
-					else if(charCounter % 2 == 1){
+					else if(charCounter % 2 == 0){
 						pathY = Integer.parseInt(playerLine);
-						continue;
+						//continue;
 					}
+					charCounter++;
 				}
 				// Not sure we even need this else if
 				else if(playerLine.equals("\n")){
 					// EOL.
 				}
 				
-				// I don't know if this works. It should get the right pathX val and pathY val read
-				// I'm not sure. I'm confused on this part.
+				//System.out.println("pathX: " + pathX + " pathY: " + pathY);
+				
+				// Adds a point to the path, then resets the check varibles
 				if(pathX != -1 && pathY != -1){
-					Point pathPoint = new Point(pathX,pathY);				
+					Point pathPoint = new Point(pathX,pathY);	
+					System.out.println("Added " + pathPoint);
 					playerPath.addToPath(pathPoint);
+					pathX = -1;
+					pathY = -1;
+					
 				}
 				
 			}
 			
 			
 			Player player = new Player(startX, startY, teamSign,fb101, playerPath);
+			
 			if(teamSign == 'O'){
 				offensiveTeam.add(player);
 			}
@@ -104,12 +115,11 @@ public class Play {
 			}
 			// Basically if the number of characters, except the team sign, mod 2 is not 0,
 			// then we have a non-paired value.
-			if(charCounter-1 % 2 != 0){
+			if((charCounter-1) % 2 != 0){
 				throw new BadConfigException(currentPlayFilename);
 			}
 
 		}
-		
 
 
 	}
