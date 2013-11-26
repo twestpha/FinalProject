@@ -27,7 +27,7 @@ public class Football101Tests {
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
-		p1 = new Player(0,0,'O',football101);
+		p1 = new Player(0,0,'O', new ArrayList<Point>(), football101);
 	}
 
 	@Test
@@ -55,7 +55,8 @@ public class Football101Tests {
 
 		// Make sure that the player follows the line, ends up
 		// at the end of it.
-		p1.moveAlongLine(lines);
+		p1.setPath(lines);
+		p1.moveAlongLine();
 		Assert.assertEquals(15, p1.getX());
 		Assert.assertEquals(15, p1.getY());
 
@@ -63,7 +64,9 @@ public class Football101Tests {
 		// follows it and ends up at the end.
 		lines.add(new Point(30, 35));
 		lines.add(new Point( 40, 30));
-		p1.moveAlongLine(lines);
+		
+		p1.setPath(lines);
+		p1.moveAlongLine();
 		Assert.assertEquals(40, p1.getX());
 		Assert.assertEquals(30, p1.getY());
 	}
