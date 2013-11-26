@@ -39,6 +39,11 @@ public class Football101 extends JFrame {
 		// Jframe/Gui stuff
 		field = new Field();
 		add(field, BorderLayout.CENTER);
+		try {
+			loadMenu("Menu.conf");
+		} catch (FileNotFoundException | BadConfigException e) {
+			e.printStackTrace();
+		}
 		setSize(1024,768);
 		setResizable(false);
 		setVisible(true);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
 
@@ -15,6 +16,10 @@ public class Menu extends JPanel {
 
 	public Menu(Map<String,String> fileData){
 		this.fileData = fileData;
+		JComboBox playList = new JComboBox();
+		for(String play: fileData.keySet() ){
+			//playList.
+		}
 	}
 	
 	public void executeSelectedPlay(){
@@ -26,7 +31,7 @@ public class Menu extends JPanel {
 		return fileData.size();
 	}
 
-	public String getSelection() {
+	public String getSelection(){
 		return selection;
 	}
 	

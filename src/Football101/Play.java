@@ -102,7 +102,7 @@ public class Play {
 			}
 			
 			
-			Player player = new Player(startX, startY, teamSign,fb101, playerPath);
+			Player player = new Player(startX, startY, teamSign,fb101);
 			
 			if(teamSign == 'O'){
 				offensiveTeam.add(player);
