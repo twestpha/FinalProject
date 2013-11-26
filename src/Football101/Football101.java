@@ -96,7 +96,6 @@ public class Football101 extends JFrame {
 					throw new BadConfigException("Bad legend Config");
 				}
 				menuContent.put(content[0], content[1]);
-				System.out.println(content[1]);
 			}
 		} catch (FileNotFoundException e) {
 			throw new FileNotFoundException("The Menu.conf could not be found");

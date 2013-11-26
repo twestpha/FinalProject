@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -23,6 +24,8 @@ public class Menu extends JPanel {
 	public Menu(Map<String,String> fileData, Football101 f){
 		this.fileData = fileData;
 		this.f = f;
+		
+		// Combo box stuff
 		String fpath;
 		DisabledItemsComboBox box = new DisabledItemsComboBox();
 		for(String play: fileData.keySet() ){
@@ -41,10 +44,16 @@ public class Menu extends JPanel {
 				} catch (BadConfigException e1) {
 					e1.printStackTrace();
 				}
+                getF().getField().setCurPlay(play);
                 getF().getField().repaint();
 			}
 		});
 		add(box);
+		
+		// Execute button stuff
+		JButton button = new JButton("Execute Play");
+		add(button);
+		
 	}
 	
 	public void executeSelectedPlay(){

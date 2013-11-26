@@ -8,14 +8,15 @@ import javax.swing.JPanel;
 
 public class Field extends JPanel {
 	private Menu menu;
+	private Play curPlay;
 	   
-	public Field() {
-		// TODO Implement field constructor
+	public Field(){
+		
 	}
 
 	public void paintComponent(Graphics g){
 		//Player a = new Player(500, 500, 'X', null);
-		
+		//a.draw(g);
 		
 		final int SPACING = 50;
 		super.paintComponents(g);
@@ -39,9 +40,21 @@ public class Field extends JPanel {
 				g.drawString((k*SPACING)+","+(l*SPACING), (SPACING*k)+1, (SPACING*l)+11);
 			}
 		}
-		
-		//a.draw(g);
 		// End of testing grid
+		
+		if(curPlay != null){
+			for(Player o : curPlay.getOffensiveTeam()){
+				o.draw(g);
+			}
+			for(Player x : curPlay.getDefensiveTeam()){
+				x.draw(g);
+			}
+		}
+			
+		
 	}
 	
+	public void setCurPlay(Play curPlay){
+		this.curPlay = curPlay;
+	}
 }

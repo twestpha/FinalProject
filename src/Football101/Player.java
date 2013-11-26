@@ -26,7 +26,7 @@ public class Player {
 		if(teamSymbol == 'O'){
 			g.setColor(Color.RED);
 		}else{
-			g.setColor(Color.WHITE);
+			g.setColor(Color.BLACK);
 		}
 		g.drawString(new Character(teamSymbol).toString(), x, y);
 	}
