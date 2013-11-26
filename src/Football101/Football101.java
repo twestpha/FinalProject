@@ -51,7 +51,7 @@ public class Football101 extends JFrame {
 	}
 
 	public void clear(){
-		// TODO: implement football101.clear()
+		
 	}
 
 	public void executePlay(Play target){
