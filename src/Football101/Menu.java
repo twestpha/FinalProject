@@ -1,9 +1,12 @@
 package Football101;
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Vector;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 
@@ -16,10 +19,13 @@ public class Menu extends JPanel {
 
 	public Menu(Map<String,String> fileData){
 		this.fileData = fileData;
-		JComboBox playList = new JComboBox();
+		Vector<String> items = new Vector();
 		for(String play: fileData.keySet() ){
-			//playList.
+			items.add(play);
 		}
+		DefaultComboBoxModel model = new DefaultComboBoxModel(items);
+		JComboBox playList = new JComboBox(model);
+		add(playList,  BorderLayout.WEST);	
 	}
 	
 	public void executeSelectedPlay(){
