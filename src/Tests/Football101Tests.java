@@ -27,7 +27,11 @@ public class Football101Tests {
 	@Before
 	public void setUp() throws Exception {
 		football101 = new Football101();
+<<<<<<< HEAD
 		p1 = new Player(0,0,'O', new ArrayList<Point>(), football101);
+=======
+		p1 = new Player(0,0,'O',football101);
+>>>>>>> 83ff70a83df616f8420ab47bf2f820a12851dbe4
 	}
 
 	@Test
