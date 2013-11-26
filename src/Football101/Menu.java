@@ -19,13 +19,15 @@ public class Menu extends JPanel {
 
 	public Menu(Map<String,String> fileData){
 		this.fileData = fileData;
-		Vector<String> items = new Vector();
+		String fpath;
+		DisabledItemsComboBox box = new DisabledItemsComboBox();
 		for(String play: fileData.keySet() ){
-			items.add(play);
+			fpath = fileData.get(play);
+			box.addItem(play, (fpath.equals("BREAKER")));
 		}
-		DefaultComboBoxModel model = new DefaultComboBoxModel(items);
-		JComboBox playList = new JComboBox(model);
-		add(playList,  BorderLayout.WEST);	
+		add(box);
+		
+		
 	}
 	
 	public void executeSelectedPlay(){
