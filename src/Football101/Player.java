@@ -21,7 +21,11 @@ public class Player {
 
 	public void draw(Graphics g){
 		g.setFont(new Font("CourierNew", Font.PLAIN, 50));
-		g.setColor(Color.RED);
+		if(teamSymbol == 'O'){
+			g.setColor(Color.RED);
+		}else{
+			g.setColor(Color.WHITE);
+		}
 		g.drawString(new Character(teamSymbol).toString(), x, y);
 	}
 
