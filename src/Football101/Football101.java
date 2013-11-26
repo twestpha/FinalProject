@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-
-
 public class Football101 extends JFrame {
 
 	private Field field;
@@ -49,14 +47,14 @@ public class Football101 extends JFrame {
 
 	public void clear(){
 		
-	}
-
-	public void executePlay(Play target){
 		
 	}
 
+	public void executePlay(Play target){
+		// TODO: implement football101.executePlay(Play target)
+	}
+
 	public void loadPlay(String filename){
-		// Load the Play object.
 		currentPlay = new Play(filename, this);
 	}
 
@@ -75,7 +73,6 @@ public class Football101 extends JFrame {
 		try {
 			play.readPlayFromFile();
 		} catch (BadConfigException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -96,7 +93,7 @@ public class Football101 extends JFrame {
 				menuContent.put(content[0], content[1]);
 			}
 		} catch (FileNotFoundException e) {
-			throw new FileNotFoundException("The File could not be Found");
+			throw new FileNotFoundException("The Menu.conf could not be found");
 		}
         menu = new Menu(menuContent);
     }
