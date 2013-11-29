@@ -12,6 +12,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 
 public class Menu extends JPanel {
@@ -54,7 +55,25 @@ public class Menu extends JPanel {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				getF().getField().getCurPlay().execute();
+
+				class TimerListener implements ActionListener {
+					public void actionPerformed(ActionEvent e) {
+						Timer t = (Timer)e.getSource();
+						getF().getField().getCurPlay().execute();
+						if(getF().getField().getCurPlay().isEverybodyDone()){
+							t.stop();
+						}
+					}
+				}
+				
+				Timer t = new Timer(100, new TimerListener());
+
+				t.start();
+
+				 // boolean, if everybody is done with their play = TRUE
+				
+
+
 			}
 		});
 		add(button);

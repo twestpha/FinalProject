@@ -11,6 +11,7 @@ public class Play {
 	private ArrayList<Player> defensiveTeam;
 	private String currentPlayFilename;
 	private Football101 fb101;
+	private boolean everybodyDone;
 
 	public Play(String filename, Football101 fb101) {
 		currentPlayFilename = filename;
@@ -21,17 +22,25 @@ public class Play {
 	}
 	
 	public void execute(){
+		everybodyDone = true;
 		for(Player o : getOffensiveTeam()){
 			if(o.getPath() != null){
 				o.moveAlongLine();
+				everybodyDone &= o.doneWithPlay();
 			}
 		}
 		for(Player x : getDefensiveTeam()){
 			if(x.getPath() != null){
 				x.moveAlongLine();
+				everybodyDone &= x.doneWithPlay();
 			}
 		}
 	}
+	
+	public boolean isEverybodyDone(){
+		return everybodyDone;
+	}
+	
     // Added throws declaration. Figured this error should be handled elsewhere.
 	public void readPlayFromFile() throws BadConfigException{
 		// Open file, wrap it in scanner.

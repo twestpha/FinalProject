@@ -13,6 +13,8 @@ public class Player {
 	private char teamSymbol;
 	private Football101 f;
 	private ArrayList<Point> path;
+	private final int PRECISION = 8;
+	private boolean isPlayDone;
 
 	public Player(int xPosition, int yPosition, char team, ArrayList<Point> path, Football101 f) {
 		this.x = xPosition;
@@ -20,6 +22,7 @@ public class Player {
 		this.teamSymbol = team;
 		this.f = f;
 		this.path = path;
+		isPlayDone=(path.size()==0);
 		pathCount = 0;
 	}
 
@@ -40,6 +43,10 @@ public class Player {
 	public int getY() {
 		return y;
 	}
+	
+	public boolean doneWithPlay(){
+		return isPlayDone;
+	}
 
 	public char getSymbol() {
 		return teamSymbol;
@@ -49,26 +56,23 @@ public class Player {
 		this.path = path;
 	}
 	
-	public boolean isDoneWithPlay(){
-		return doneWithPlay;
-	}
 	public ArrayList<Point> getPath(){
 		return path;
 	}
 
 	public void moveAlongLine() {
-		if(path.size() != 0 && !doneWithPlay){
-			if( x != path.get(pathCount).x || y != path.get(pathCount).y ){// Not at destination
+		if(path.size() != 0 && !isPlayDone){
+			if( x > path.get(pathCount).x + PRECISION || x < path.get(pathCount).x - PRECISION || y < path.get(pathCount).y - PRECISION || y > path.get(pathCount).y + PRECISION){// Not at destination
 				double dx = path.get(pathCount).x - x;
 				double dy = path.get(pathCount).y - y;
 				double theta = Math.atan(dy/dx);
-				x = (int) (x + (8 * Math.cos(theta) ));
-				y = (int) (y + (8 * Math.sin(theta) ));
+				x = (int) (x + (12 * Math.cos(theta) ));
+				y = (int) (y + (12 * Math.sin(theta) ));
 			} else {
 				if(pathCount+1 < path.size()){
 					pathCount++;
 				} else {
-					doneWithPlay = true;
+					isPlayDone = true;
 				}
 			}
 		}
