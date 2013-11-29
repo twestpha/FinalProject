@@ -16,10 +16,6 @@ public class Field extends JPanel {
 
 	public void paintComponent(Graphics g){
 		
-	
-		//Player a = new Player(500, 500, 'X', null);
-		//a.draw(g);
-		
 		final int SPACING = 50;
 		boolean nobodyDone = true;
 		super.paintComponents(g);
@@ -30,7 +26,7 @@ public class Field extends JPanel {
 		g.fillRect((getSize().width/4)-3,30,6,getSize().height - 60);
 		g.fillRect((getSize().width/2)+(getSize().width/4)-3,30,6,getSize().height - 60);
 		
-		// TODO: TEST GRID. REMOVE BEFORE RELEASE
+		// TEST GRID. REMOVE BEFORE RELEASE
 		/*for(int i = 0; i < getSize().width/SPACING+1; ++i){
 			g.drawLine(SPACING*i, 0, SPACING*i, getSize().height);
 		}

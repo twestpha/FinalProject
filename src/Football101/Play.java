@@ -16,7 +16,7 @@ public class Play {
 	public Play(String filename, Football101 fb101) {
 		currentPlayFilename = filename;
 		this.fb101 = fb101;
-		
+		everybodyDone = true;
 		offensiveTeam = new ArrayList<Player>();
 		defensiveTeam = new ArrayList<Player>();
 	}
@@ -49,7 +49,6 @@ public class Play {
 		try {
 			playParser = new Scanner(playFile);
 		} catch (FileNotFoundException e) {
-			// TODO: handle this exception
 			System.out.println("Can't open play file");
 		}
 		
@@ -135,6 +134,10 @@ public class Play {
 	}
 	public ArrayList<Player> getDefensiveTeam() {
 		return defensiveTeam;
+	}
+
+	public void setDone(boolean b) {
+		everybodyDone = b;
 	}
 
 }

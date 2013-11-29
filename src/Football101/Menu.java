@@ -60,7 +60,7 @@ public class Menu extends JPanel {
 					public void actionPerformed(ActionEvent e) {
 						Timer t = (Timer)e.getSource();
 						getF().getField().getCurPlay().execute();
-						if(getF().getField().getCurPlay().isEverybodyDone()){
+						if(getF().getField().getCurPlay().isEverybodyDone()){ // boolean, if everybody is done with their play = TRUE
 							t.stop();
 						}
 					}
@@ -70,7 +70,7 @@ public class Menu extends JPanel {
 
 				t.start();
 
-				 // boolean, if everybody is done with their play = TRUE
+				 
 				
 
 
@@ -78,10 +78,6 @@ public class Menu extends JPanel {
 		});
 		add(button);
 
-	}
-
-	public void executeSelectedPlay(){
-		// TODO: implement executeSelectedPlay()
 	}
 
 	// Getters 
