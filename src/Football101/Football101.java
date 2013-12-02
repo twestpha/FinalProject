@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -18,7 +19,7 @@ public class Football101 extends JFrame {
 	private ArrayList<Player> offensivePlayers;
 	private ArrayList<Player> defensivePlayers;
 	
-	private Map<String, String> menuContent = new HashMap<String, String>();
+	private Map<String, String> menuContent = new LinkedHashMap<String, String>();
 
 	private static final int PLAYERS_PER_TEAM = 11;
 
@@ -78,6 +79,7 @@ public class Football101 extends JFrame {
 				if (content.length != 2){
 					throw new BadConfigException("Bad legend Config");
 				}
+				System.out.println(content[0]);
 				menuContent.put(content[0], content[1]);
 			}
 		} catch (FileNotFoundException e) {
